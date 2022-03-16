@@ -1,0 +1,21 @@
+<div *ngIf="itens.length">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+              <th scope="col">Id do Projeto</th>
+              <th scope="col">Nome do Projeto</th>
+              <th scope="col">Private</th>
+              <th scope="col">Download do Projeto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of itens" >
+              <th scope="row">{{ item.id }}</th>
+              <td>{{item.name}}</td>
+              <td> {{ item.private }} </td>
+              <td>{{ item.downloads_url }}</td>
+            </tr>
+            
+          </tbody>
+      </table>
+</div>
