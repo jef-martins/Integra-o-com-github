@@ -1,6 +1,6 @@
+import { GithubApi } from './../../api/github.api';
 import { Component, Input, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
-import { GithubService } from '../../github.service';
 
 @Component({
   selector: 'app-list',
@@ -9,24 +9,30 @@ import { GithubService } from '../../github.service';
 })
 export class ListComponent implements OnInit {
 
- download_url = ""
+  // download_url = ""
 
- @Input() itens:any = [];
+  @Input() itens: any = [];
+  itensAdapted: any = []
 
-  constructor(public service: GithubService) { }
+  constructor(public api: GithubApi) { }
 
   ngOnInit(): void {
+    setTimeout(async() => {
+      for await (let item of this.itens) {
+        item.owner.login, item.name, item.commits_url
+        const commit = item.commits_url.split("{");
+        const sha:any = await lastValueFrom(this.api.getUrl(commit[0]));
+        const url = "https://github.com/" + item.owner.login + "/" + item.name + "/archive/" + sha[0].sha + ".zip"
+        this.itensAdapted.push({
+          ...item,
+          download_url_adpted: url
+        })
+      };
+      console.log(this.itensAdapted)
+    }, 5000);
+
   }
 
-  formatarUrl(commitUrl: string){
-    const commit = commitUrl.split("{")
-    return commit[0];
-  }
 
-   async prepararDownload(user: string, projeto: string, commitUrl: string){
-    const sha: any= await lastValueFrom(this.service.getUrl(this.formatarUrl(commitUrl)));
-     console.log(sha[0]);
-     return this.download_url = "https://github.com/"+ user +"/"+ projeto +"/archive/"+ sha[0].sha +".zip"
-   }
 
 }

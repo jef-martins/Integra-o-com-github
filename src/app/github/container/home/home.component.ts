@@ -1,4 +1,5 @@
-import { GithubService } from './../../github.service';
+import { GithubFacade } from './../../github.facade';
+import { GithubApi } from '../../api/github.api';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,28 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public user: any = '';
+  public user: string = '';
   public respostas: any = '';
 
-  constructor(public service: GithubService) { }
+  constructor(public facade: GithubFacade) { }
 
   ngOnInit(): void {
+    
   }
 
 
   onUser(event: string){
-    this.service.pesquisar(event).subscribe(res=>{
-      this.user = res;
-      console.log(res)
-    });
-
-    this.service.listar(event).subscribe(res=>{
-      this.respostas = res;
-      console.log(res)
-    })
-
-
-
+    this.facade.getUser(event);
   }
 
   

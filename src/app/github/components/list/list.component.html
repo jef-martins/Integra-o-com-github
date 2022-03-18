@@ -25,16 +25,16 @@
     <div class="mt-5" id="rolar_baixo">
       <div class="lh-sm">
         <div class="row row-cols-1 row-cols-md-3 g-5">
-          <div class="col" *ngFor="let item of itens">
+          <div class="col" *ngFor="let item of itensAdapted">
             <div class="card h-100 mb-5">
               <div class="card-body">
                 <h6 class="card-title bi bi-github fw-bold"> {{item.name}}</h6>
                 <h6 class="card-subtitle mb-2 text-muted">Id do Projeto: {{ item.id}}</h6>
                 <!-- <p class="card-text">Linguagem: {{item.language}}</p> -->
                 <p class="card-text">{{item.description}}</p>
-                <p class="card-text"> Criado em: {{ item.created_at | datePipe}}</p>
+                <p class="card-text"> Criado em: {{ item.created_at }}</p>
                 <p class="card-text">Forks: {{ item.forks }} </p>
-                <!-- <a href="{{prepararDownload(item.owner.login, item.name, item.commits_url)}}" class="card-link text-decoration-none fw-bold"> Download do Projeto </a> -->
+                <a [href]="item.download_url_adpted" class="card-link text-decoration-none fw-bold"> Download do Projeto </a>
               </div>
             </div>
           </div>

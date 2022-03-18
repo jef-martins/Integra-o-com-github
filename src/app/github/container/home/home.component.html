@@ -2,7 +2,7 @@
     <div class="row">
         <div class="centralizaVerticalmente">
             <div class="col-6">
-                <app-logo [avatar_url]="user.avatar_url"></app-logo>
+                <app-logo [avatar_url]="facade.user$.value"></app-logo>
             </div>
             <div class="col-6">
                 <app-user (onSubmit)="onUser($event)"></app-user>

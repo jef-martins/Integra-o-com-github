@@ -9,7 +9,8 @@ import { UserComponent } from './github/components/user/user.component';
 import { HomeComponent } from './github/container/home/home.component';
 import { ListComponent } from './github/components/list/list.component';
 import { FormsModule } from '@angular/forms';
-import { DatePipe } from './github/datePipe.pipe';
+import { DatePipe } from './github/pipes/datePipe.pipe';
+import { FormatUrlPipe } from './github/pipes/formatUrl.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DatePipe } from './github/datePipe.pipe';
     UserComponent,
     HomeComponent,
     ListComponent,
-    DatePipe
+    DatePipe,
+    FormatUrlPipe
   ],
   imports: [
     BrowserModule,
