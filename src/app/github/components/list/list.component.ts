@@ -1,6 +1,6 @@
 import { GithubApi } from './../../api/github.api';
 import { Component, Input, OnInit } from '@angular/core';
-import { BehaviorSubject, lastValueFrom } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -28,11 +28,7 @@ export class ListComponent implements OnInit {
           ...item,
           download_url_adpted: url
         })
-      };
+      }
     });
-
   }
-
-
-
 }
