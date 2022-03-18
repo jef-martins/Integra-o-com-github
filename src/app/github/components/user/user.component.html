@@ -1,0 +1,23 @@
+<div class="centralizarHorizontalmente">
+    <div class="alinharVerticalmente">
+        <div class="mb-4">
+            <h1 class="display-1">Digite um User</h1>
+        </div>
+
+        <!-- <form > -->
+        <div class="input-group mb-4">
+            <span class="input-group-text" id="basic-addon1">@</span>
+            <input [(ngModel)]="pesquisaUser" type="text" class="form-control" placeholder="Usuário"
+                aria-label="Username" aria-describedby="basic-addon1" (keydown.enter)="pesquisar() ">
+        </div>
+        <!-- </form> -->
+
+
+        
+        <div class="d-grid gap-2 col-12 mx-auto">
+            <a href="#rolar_baixo" class="btn btn-dark" (click)="pesquisar()">Pesquisar</a>
+        </div>
+
+
+    </div>
+</div>
