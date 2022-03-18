@@ -17,7 +17,8 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.itens?.subscribe(async (itens: any) => {
       if (!itens) return;
-
+      this.itensAdapted = [];
+      
       for await (let item of itens) {
 
         const commit = item.commits_url.split("{");
