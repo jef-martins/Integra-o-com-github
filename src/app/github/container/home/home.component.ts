@@ -27,6 +27,13 @@ export class HomeComponent implements OnInit {
       this.respostas = res;
       console.log(res)
     })
+
+
+
   }
+
+  
+
+  
 
 }

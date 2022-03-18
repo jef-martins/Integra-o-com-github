@@ -19,5 +19,10 @@ export class GithubService {
     const response = this.http.get(this.url + user + '/repos');
     return response;
   }
+
+  getUrl(url: string){
+    const response = this.http.get(url);
+    return response;
+  }
 }
 

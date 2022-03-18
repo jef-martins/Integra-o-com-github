@@ -10,6 +10,8 @@ export class UserComponent implements OnInit {
   pesquisaUser: string = 'jef-martins';
   url = 'https://api.github.com/users/';
   resposta: any;
+  
+
   @Output() onSubmit: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
@@ -19,6 +21,16 @@ export class UserComponent implements OnInit {
 
   pesquisar(){
     this.onSubmit.emit(this.pesquisaUser);
+
+    setTimeout(() => {
+      
+      window.scrollTo({ top: 650, behavior: 'smooth' });
+      
+      console.log(window)
+    }, 1500);
   }
+
+  
+
 
 }
