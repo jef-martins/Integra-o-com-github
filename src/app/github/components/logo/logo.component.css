@@ -8,10 +8,9 @@
     flex-wrap: nowrap;
 }
 
-
-
 .tamanho{
-    width: 30vw;
-    height: 80vh;
+    width: 33vw;
+    height: 70vh;
+    border-radius: 50%;
 }
 

@@ -1,40 +1,19 @@
-<!--<div class="margin" *ngIf="itens.length">
-    <table class="table table-dark table-hover">
-        <thead>
-            <tr>
-              <th scope="col">Id do Projeto</th>
-              <th scope="col">Nome do Projeto</th>
-              <th scope="col">Private</th>
-              <th scope="col">Download do Projeto</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of itens" >
-              <th scope="row">{{ item.id }}</th>
-              <td>{{ item.name }}</td>
-              <td> {{ item.private }} </td>
-              <td>{{ item.downloads_url }}</td>
-            </tr>
-            
-          </tbody>
-      </table>
-</div>-->
-
 <div id="cards" style="background-color: rgb(47, 47, 49)">
   <div class="container">
     <div class="mt-5" id="rolar_baixo">
-      <div class="lh-sm">
+      <div class="">
         <div class="row row-cols-1 row-cols-md-3 g-5">
-          <div class="col" *ngFor="let item of itensAdapted">
-            <div class="card h-100 mb-5">
+          <div class="col mb-5" *ngFor="let item of itens">
+            <div class="card h-100">
               <div class="card-body">
                 <h6 class="card-title bi bi-github fw-bold"> {{item.name}}</h6>
                 <h6 class="card-subtitle mb-2 text-muted">Id do Projeto: {{ item.id}}</h6>
                 <!-- <p class="card-text">Linguagem: {{item.language}}</p> -->
                 <p class="card-text">{{item.description}}</p>
-                <p class="card-text"> Criado em: {{ item.created_at }}</p>
+                <p class="card-text"> Criado em: {{ item.created_at | datePipe }}</p>
                 <p class="card-text">Forks: {{ item.forks }} </p>
-                <a [href]="item.download_url_adpted" class="card-link text-decoration-none fw-bold"> Download do Projeto </a>
+                <a [href]="item.download_url_adpted" class="card-link text-decoration-none fw-bold"> Download do Projeto
+                </a>
               </div>
             </div>
           </div>
@@ -42,6 +21,7 @@
       </div>
     </div>
   </div>
-  
+</div>
 
-  <!-- https://github.com/{username}/{projectname}/archive/{sha}.zip -->
+
+<!-- https://github.com/{username}/{projectname}/archive/{sha}.zip -->

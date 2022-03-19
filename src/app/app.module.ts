@@ -11,6 +11,7 @@ import { ListComponent } from './github/components/list/list.component';
 import { FormsModule } from '@angular/forms';
 import { DatePipe } from './github/pipes/datePipe.pipe';
 import { FormatUrlPipe } from './github/pipes/formatUrl.pipe';
+import { CarregandoComponent } from './github/components/carregando/carregando.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormatUrlPipe } from './github/pipes/formatUrl.pipe';
     HomeComponent,
     ListComponent,
     DatePipe,
-    FormatUrlPipe
+    FormatUrlPipe,
+    CarregandoComponent
   ],
   imports: [
     BrowserModule,

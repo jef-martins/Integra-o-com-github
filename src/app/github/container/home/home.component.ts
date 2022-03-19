@@ -1,5 +1,4 @@
 import { GithubFacade } from './../../github.facade';
-import { GithubApi } from '../../api/github.api';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,13 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  public user: string = '';
-  public respostas: any = '';
-
   constructor(public facade: GithubFacade) { }
 
   ngOnInit(): void {
-    
+
   }
 
 

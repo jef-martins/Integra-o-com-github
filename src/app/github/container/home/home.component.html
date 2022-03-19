@@ -5,10 +5,11 @@
                 <app-logo [avatar_url]="facade.user$.value"></app-logo>
             </div>
             <div class="col-6">
-                <app-user (onSubmit)="onUser($event)"></app-user>
+                <app-user *ngIf="!facade.carregando" (onSubmit)="onUser($event)"></app-user>
+                <app-carregando *ngIf="facade.carregando"></app-carregando>
             </div>
         </div>
     </div>
 </div>
 
-<app-list [itens]="facade.projetos$"></app-list>
+<app-list [itens]="facade.projetos$ | async"></app-list>
