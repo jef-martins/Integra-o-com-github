@@ -1,0 +1,22 @@
+.tamanho{
+    width: 50%;
+}
+
+.centralizarHorizontalmente{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.alinharVerticalmente{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+

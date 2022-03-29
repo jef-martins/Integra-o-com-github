@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class GithubState {
 
-    projetos: BehaviorSubject<any> = new BehaviorSubject<any>(null)
+    projetos: BehaviorSubject<any> = new BehaviorSubject<any>([])
     user: BehaviorSubject<any> = new BehaviorSubject<any>(null)
 
 
@@ -33,7 +33,7 @@ export class GithubState {
         return this.user;
     }
 
-    set usersCollection(value: any){
+    set userCollection(value: any){
         this.user.next(value);
     }
 }

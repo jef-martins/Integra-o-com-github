@@ -21,13 +21,6 @@ export class UserComponent implements OnInit {
 
   pesquisar(){
     this.onSubmit.emit(this.pesquisaUser);
-
-    setTimeout(() => {
-      
-      window.scrollTo({ top: 650, behavior: 'smooth' });
-      
-      console.log(window)
-    }, 1500);
   }
 
   

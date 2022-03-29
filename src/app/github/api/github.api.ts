@@ -15,8 +15,9 @@ export class GithubApi {
     return response;
   }
 
-  listar(user: string){
-    const response = this.http.get(this.url + user + '/repos');
+  listar(user: string, pagina:number){
+    const response = this.http.get(this.url + user + '/repos?page=' + pagina);
+    console.log(this.url + user + '/repos?page=' + pagina)
     return response;
   }
 
@@ -25,4 +26,6 @@ export class GithubApi {
     return response;
   }
 }
+
+
 

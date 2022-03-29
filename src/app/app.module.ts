@@ -8,9 +8,13 @@ import { LogoComponent } from './github/components/logo/logo.component';
 import { UserComponent } from './github/components/user/user.component';
 import { HomeComponent } from './github/container/home/home.component';
 import { ListComponent } from './github/components/list/list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from './github/pipes/datePipe.pipe';
 import { FormatUrlPipe } from './github/pipes/formatUrl.pipe';
+import { ComponentComponent } from './github/components/carregando/component/component.component';
+import { PaginacaoComponent } from './github/paginacao/paginacao.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FiltrarComponent } from './github/filtrar/filtrar.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,18 @@ import { FormatUrlPipe } from './github/pipes/formatUrl.pipe';
     HomeComponent,
     ListComponent,
     DatePipe,
-    FormatUrlPipe
+    FormatUrlPipe,
+    ComponentComponent,
+    PaginacaoComponent,
+    FiltrarComponent,
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
