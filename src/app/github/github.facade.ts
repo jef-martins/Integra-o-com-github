@@ -10,8 +10,12 @@ import { fil } from 'date-fns/locale';
 export class GithubFacade {
 
     public projetos$ = this.state.projetos;
+    public branchs$ = this.state.branchs;
     public user$ = this.state.user;
     public carregando = false;
+    public url = '';
+    public url1 = '';
+    public url2 = '';
 
 
     constructor(
@@ -37,17 +41,16 @@ export class GithubFacade {
                 for await (let item of res) {
 
                     const [commit] = item.commits_url.split("{");
+
+                    const branchs: any = await lastValueFrom(this.api.getUrl('https://api.github.com/repos/' + user + '/' + item.name + '/git/refs'));
+
+                    this.url = "https://github.com/" + item.owner.login + "/";
                     
-                    const sha: any = await lastValueFrom(this.api.getUrl(commit));
-                    const teste: any = await lastValueFrom(this.api.getUrl('https://api.github.com/repos/jef-martins/agenda-backEnd/git/refs'));
-                    console.log(teste)
-                    const url = "https://github.com/" + item.owner.login + "/" + item.name + "/archive/" + sha[0].sha + ".zip"
-                    //console.log(url)
                     this.state.projetosCollection.push({
                         ...item,
-                        download_url_adpted: url
+                        download_url_adpted: branchs
                     });
-                   
+
                     setTimeout(() => {
                         window.scrollTo({ top: 620, behavior: 'smooth' });
                         this.carregando = false;
@@ -60,6 +63,11 @@ export class GithubFacade {
         });
 
     }
+
+    // getBranch(){
+    //     const branchs: any = await lastValueFrom(this.api.getUrl('https://api.github.com/repos/' + user + '/' + item.name + '/git/refs'));
+
+    // }
 
 }
 

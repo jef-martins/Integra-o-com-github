@@ -1,8 +1,6 @@
 import { GithubFacade } from './../../github.facade';
-import { GithubApi } from '../../api/github.api';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { formatDate } from '@angular/common';
 import { debounceTime, tap } from 'rxjs';
 @Component({
   selector: 'app-home',
@@ -50,6 +48,8 @@ export class HomeComponent implements OnInit {
   }
 
   onListar() {
+    this.facade.url1 = "https://github.com/" + this.user + "/";
+    this.facade.url2 = "/archive/";
     this.facade.getRepo(this.user, this.pagina);
   }
 

@@ -10,13 +10,18 @@ import { lastValueFrom } from 'rxjs';
 export class ListComponent implements OnInit {
 
   @Input() itens: any = [];
-  
-  
+
+  url: string = '';
+  @Input() urlBase: string = '';
+
+
   constructor(public api: GithubApi) { }
 
   ngOnInit(): void {
   }
 
-
+  nameProject(commit: any) {
+    return commit[0].object.url.split('/')[5];
+  }
 
 }

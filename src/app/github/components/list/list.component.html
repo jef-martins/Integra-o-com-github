@@ -12,8 +12,11 @@
                 <p class="card-text">{{item.description}}</p>
                 <p class="card-text"> Criado em: {{ item.created_at | datePipe }}</p>
                 <p class="card-text">Forks: {{ item.forks }} </p>
-                <p class="card-text">Favoritados: {{ item.stargazers_count }} </p> <hr>
-                <a [href]="item.download_url_adpted" class="card-link text-decoration-none fw-bold bi bi-file-zip-fill"> Download do Projeto
+                <p class="card-text">Favoritados: {{ item.stargazers_count }} </p><hr>
+                <select [(ngModel)]="url" class="form-select" aria-label="Default select example">
+                  <option *ngFor="let url of item.download_url_adpted" value="{{url.object.sha}}">{{url.ref.split('/')[2]}}</option>
+                </select><br>
+                <a [href]="urlBase + nameProject(item.download_url_adpted) + '/archive/' + url + '.zip'" [hidden]="!url.length" class="card-link text-decoration-none fw-bold bi bi-file-zip-fill"> Download do Projeto
                 </a>
               </div>
             </div>

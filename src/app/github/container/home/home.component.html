@@ -1,52 +1,3 @@
-<!-- <div class="container">
-    <div class="row">
-        <div class="centralizaVerticalmente">
-            <div class="col-6">
-                <app-logo [avatar_url]="facade.user$.value?.avatar_url"></app-logo>
-            </div>
-            <div class="col-6">
-                <app-user *ngIf="!facade.carregando" (onSubmit)="onUser($event)"></app-user>
-                <app-carregando *ngIf="facade.carregando"></app-carregando>
-            </div>
-        </div>
-    </div>
-
-    <div class="">
-        <div class="">
-            <div class="">
-                <app-paginacao *ngIf="facade.projetos$.value?.length" (onProximo)="onProximo($event)"
-                    (onAnterior)="onAnterior($event)"></app-paginacao>
-            </div>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <div class="">
-            <div class="col-sm-7">
-                <div class="input-group ">
-                    <form [formGroup]="filtro" class="">
-                        <input formControlName="nome" type="text" class="form-control" placeholder="Nome do Projeto ou Data"
-                            aria-label="default input" size="80px">
-                            <div class="col" id="favoritos">
-                                <div class="d-grid-4">
-                                    <div class="">
-                                        <div class="">
-                                            <div class="" role="group" aria-label="Basic checkbox toggle button group">
-                                                <input formControlName="favoritos" type="checkbox" class="btn-check" id="btncheck1"
-                                                    autocomplete="off">
-                                                <label class="btn btn-outline-dark bi bi-star-fill" for="btncheck1"> Favoritos</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="container">
     <div class="row">
         <div class="centralizaVerticalmente">
@@ -78,7 +29,7 @@
     </form>
 </div>
 
-<app-list [itens]="itensFiltrados"></app-list>
+<app-list [itens]="itensFiltrados" [urlBase]="facade.url"></app-list>
 <footer style="background-color: rgb(47, 47, 49)">
     <br><br>
 </footer>
